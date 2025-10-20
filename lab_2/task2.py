@@ -60,3 +60,13 @@ accuracy = accuracy_score(y_test, y_pred_test2)
 print(f"Точность: {accuracy:.4f}")
 print(f"Доля правильных ответов: {accuracy*100:.2f}%")
 
+#матрица ошибок
+
+cm = confusion_matrix(y_test, y_pred_test2)
+plt.figure(figsize=(4, 3))
+sns.heatmap(cm, annot=True, fmt='d', cmap='bwr')
+plt.title('Confusion matrix')
+plt.ylabel('True label')
+plt.xlabel('Predicted label')
+plt.show()
+
