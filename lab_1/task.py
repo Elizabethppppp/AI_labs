@@ -33,3 +33,6 @@ df['RoomService'].fillna(room_median, inplace=True)
 
 df['Age'].fillna(age_mean, inplace=True)
 
+nul_matrix = df.isnull()
+print(nul_matrix.sum())
+
