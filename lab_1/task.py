@@ -46,8 +46,10 @@ df['Cabin_Class_Encoded'] = df['Cabin_Class'].map(cabin_class_mapping)
 scaler = MinMaxScaler()
 scaler.fit(df[['Cabin_Class_Encoded']])
 df['Cabin_Class_Normalized'] = scaler.transform(df[['Cabin_Class_Encoded']].fillna(0))
-print(df[['Cabin', 'Cabin_Class', 'Cabin_Class_Закодированный', 'Cabin_Class_Нормализованный']].head(10))
+print(df[['Cabin', 'Cabin_Class', 'Cabin_Class_Encoded', 'Cabin_Class_Normalized']].head(10))
 
-df = pd.get_dummies(df, drop_first=True)
+transported_dummy = pd.get_dummies(df['Transported'], prefix='Transported', drop_first=True)
+numeric_cols = ['Age', 'RoomService', 'FoodCourt', 'ShoppingMall', 'Spa', 'VRDeck']
+df_final = pd.concat([df[numeric_cols], transported_dummy], axis=1)
 print(df.head())
 
