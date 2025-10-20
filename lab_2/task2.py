@@ -15,3 +15,10 @@ from sklearn.metrics import classification_report
 
 df = pd.read_csv("processed_titanic.csv")
 
+X = df.drop(['Transported'], axis=1)
+y = df['Transported']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42) #обучающая и тестовая
+
+print(f"Обучающая выборка для Transported: {X_train.shape[0]} samples ({X_train.shape[0]/len(X)*100:.1f}%)")
+print(f"Тестовая выборка для Transported: {X_test.shape[0]} samples ({X_test.shape[0]/len(X)*100:.1f}%)")
