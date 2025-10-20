@@ -15,8 +15,11 @@ from sklearn.metrics import classification_report
 
 df = pd.read_csv("processed_titanic.csv")
 
-X = df.drop(['Transported'], axis=1)
-y = df['Transported']
+df_k = pd.get_dummies(df, drop_first=True)
+df_clean = df_k.dropna()
+
+X = df_clean.drop(['Transported'], axis=1)
+y = df_clean['Transported']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42) #обучающая и тестовая
 
@@ -25,8 +28,8 @@ print(f"Тестовая выборка для Transported: {X_test.shape[0]} sa
 
 #регрессия для age
 
-X_a = df.drop(['Age'], axis=1)
-y_a = df['Age']
+X_a = df_clean.drop(['Age'], axis=1)
+y_a = df_clean['Age']
 
 X_a_train, X_a_test, y_a_train, y_a_test = train_test_split(X_a, y_a, test_size=0.4, random_state=42)
 
