@@ -47,3 +47,8 @@ print(f"Среднеквадратичная ошибка: {MSE:.2f}")
 print(f"Корень среднеквадратичной ошибки: {RMSE:.2f}")
 print(f"Средняя абсолютная ошибка: {MAE:.2f}")
 
+#задача классификации
+
+logreg_model = LogisticRegression()
+logreg_model.fit(X_train, y_train)
+y_pred_test2 = logreg_model.predict(X_test)
