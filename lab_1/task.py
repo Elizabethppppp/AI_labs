@@ -52,5 +52,3 @@ transported_dummy = pd.get_dummies(df['Transported'], prefix='Transported', drop
 numeric_cols = ['Age', 'RoomService', 'FoodCourt', 'ShoppingMall', 'Spa', 'VRDeck']
 df_final = pd.concat([df[numeric_cols], transported_dummy], axis=1)
 print(df.head())
-
-df.to_csv("processed_titanic.csv", index=False)
