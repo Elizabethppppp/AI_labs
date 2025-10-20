@@ -52,3 +52,11 @@ print(f"Средняя абсолютная ошибка: {MAE:.2f}")
 logreg_model = LogisticRegression()
 logreg_model.fit(X_train, y_train)
 y_pred_test2 = logreg_model.predict(X_test)
+
+#оценка работы классификационной модели
+
+accuracy = accuracy_score(y_test, y_pred_test2)
+
+print(f"Точность: {accuracy:.4f}")
+print(f"Доля правильных ответов: {accuracy*100:.2f}%")
+
