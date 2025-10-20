@@ -47,3 +47,7 @@ scaler = MinMaxScaler()
 scaler.fit(df[['Cabin_Class_Encoded']])
 df['Cabin_Class_Normalized'] = scaler.transform(df[['Cabin_Class_Encoded']].fillna(0))
 print(df[['Cabin', 'Cabin_Class', 'Cabin_Class_Закодированный', 'Cabin_Class_Нормализованный']].head(10))
+
+df = pd.get_dummies(df, drop_first=True)
+print(df.head())
+
