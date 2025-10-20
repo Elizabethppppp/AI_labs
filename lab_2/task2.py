@@ -70,3 +70,7 @@ plt.ylabel('True label')
 plt.xlabel('Predicted label')
 plt.show()
 
+#комплексный отчёт по классификационной модели
+
+report = classification_report(y_test, y_pred_test2)
+print(report)
