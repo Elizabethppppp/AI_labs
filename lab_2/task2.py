@@ -32,3 +32,8 @@ X_a_train, X_a_test, y_a_train, y_a_test = train_test_split(X_a, y_a, test_size=
 
 print(f"Обучающая выборка для Age: {X_a_train.shape[0]} samples ({X_a_train.shape[0]/len(X)*100:.1f}%)")
 print(f"Тестовая выборка для Age: {X_a_test.shape[0]} samples ({X_a_test.shape[0]/len(X)*100:.1f}%)")
+
+linear_model = LinearRegression()
+linear_model.fit(X_a_train, y_a_train)
+y_pred_test = linear_model.predict(X_a_test)
+
