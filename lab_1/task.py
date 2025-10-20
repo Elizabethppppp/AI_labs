@@ -10,3 +10,6 @@ df.info()
 colls=df.columns
 print(colls)
 
+nul_matrix = df.isnull()
+print(nul_matrix.sum())
+
