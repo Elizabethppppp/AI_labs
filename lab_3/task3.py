@@ -38,6 +38,10 @@ y_pred_tree = tree_regressor.predict(X_a_test)
 
 #оценка работы регрессионной модели
 
+MSE = mean_squared_error(y_a_test, y_pred_tree)
+RMSE = root_mean_squared_error(y_a_test, y_pred_tree)
+MAE = mean_absolute_error(y_a_test, y_pred_tree)
+
 print(f"Среднеквадратичная ошибка: {MSE:.2f}")
 print(f"Корень среднеквадратичной ошибки: {RMSE:.2f}")
 print(f"Средняя абсолютная ошибка: {MAE:.2f}")
