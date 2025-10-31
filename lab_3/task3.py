@@ -45,3 +45,14 @@ MAE = mean_absolute_error(y_a_test, y_pred_tree)
 print(f"Среднеквадратичная ошибка: {MSE:.2f}")
 print(f"Корень среднеквадратичной ошибки: {RMSE:.2f}")
 print(f"Средняя абсолютная ошибка: {MAE:.2f}")
+
+#классификация для transported
+
+X_t = df_clean.drop(['Transported'], axis=1)
+y_t = df_clean['Transported']
+
+X_class_train, X_class_test, y_class_train, y_class_test = train_test_split(
+    X_t, y_t, test_size=0.3, random_state=42, stratify=y_t
+)
+
+#
