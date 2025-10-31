@@ -51,8 +51,13 @@ print(f"Средняя абсолютная ошибка: {MAE:.2f}")
 X_t = df_clean.drop(['Transported'], axis=1)
 y_t = df_clean['Transported']
 
-X_class_train, X_class_test, y_class_train, y_class_test = train_test_split(
+X_t_train, X_t_test, y_t_train, y_t_test = train_test_split(
     X_t, y_t, test_size=0.3, random_state=42, stratify=y_t
 )
 
-#
+#классификация деревом
+
+tree_clf = DecisionTreeClassifier(max_depth=4, random_state=42)
+tree_clf.fit(X_t_train, y_t_train)
+y_class_proba = tree_clf.predict_proba(X_t_test)
+
