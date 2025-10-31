@@ -10,6 +10,8 @@ from sklearn.metrics import root_mean_squared_error
 from sklearn.metrics import mean_absolute_error
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import auc
+from sklearn.metrics import roc_curve
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
@@ -59,5 +61,23 @@ X_t_train, X_t_test, y_t_train, y_t_test = train_test_split(
 
 tree_clf = DecisionTreeClassifier(max_depth=4, random_state=42)
 tree_clf.fit(X_t_train, y_t_train)
-y_class_proba = tree_clf.predict_proba(X_t_test)
+y_t_proba = tree_clf.predict_proba(X_t_test)
+
+#рок кривая
+
+fpr, tpr, _ = roc_curve(y_t_test, y_t_proba[:, 1])
+roc_auc = auc(fpr, tpr)
+print(f"ROC-AUC: {roc_auc:.4f}")
+
+plt.figure(figsize=(8, 6))
+plt.plot(fpr, tpr, label=f'ROC curve (AUC = {roc_auc:.4f})')
+plt.plot([0, 1], [0, 1], 'k--')
+plt.xlim([0.0, 1.0])
+plt.ylim([0.0, 1.05])
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('ROC-кривая')
+plt.legend()
+plt.show()
+
 
