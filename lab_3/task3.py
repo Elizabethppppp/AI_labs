@@ -1,21 +1,13 @@
 import pandas as pd
-
 import matplotlib.pyplot as plt
-import seaborn as sns
-
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import root_mean_squared_error
 from sklearn.metrics import mean_absolute_error
-from sklearn.tree import DecisionTreeRegressor
+from sklearn.tree import DecisionTreeRegressor, plot_tree
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import auc
 from sklearn.metrics import roc_curve
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
-from sklearn.metrics import confusion_matrix
-from sklearn.metrics import classification_report
 
 
 df = pd.read_csv("processed_titanic.csv")
@@ -47,6 +39,13 @@ MAE = mean_absolute_error(y_a_test, y_pred_tree)
 print(f"Среднеквадратичная ошибка: {MSE:.2f}")
 print(f"Корень среднеквадратичной ошибки: {RMSE:.2f}")
 print(f"Средняя абсолютная ошибка: {MAE:.2f}")
+
+#визуализация дерева
+
+plt.figure(figsize=(20, 10))
+plot_tree(tree_regressor, filled=True, feature_names=X_a.columns.tolist(), rounded=True)
+plt.title("Дерево решений для регрессии (Age)")
+plt.show()
 
 #классификация для transported
 
