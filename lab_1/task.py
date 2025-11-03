@@ -53,3 +53,4 @@ print(df.columns.tolist())
 print(df.isnull().sum())
 
 df.to_csv("processed_titanic.csv", index=False)
+df.to_csv("processed_titanic1.csv", index=False)
