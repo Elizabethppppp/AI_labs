@@ -41,6 +41,8 @@ df['Age_Normalized'] = scaler.fit_transform(df[['Age']])
 print(f"\nНормализованный возраст (первые 10 значений):")
 print(df[['Age', 'Age_Normalized']].head(10))
 
-
+df = pd.get_dummies(df, columns=['Transported'], drop_first=True)
+print("\nДанные после преобразования Transported:")
+print(df[['Transported_True']].head(10))
 
 df.to_csv("processed_titanic.csv", index=False)
