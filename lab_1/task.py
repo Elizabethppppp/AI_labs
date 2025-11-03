@@ -36,21 +36,11 @@ df['Age'].fillna(age_mean, inplace=True)
 nul_matrix = df.isnull()
 print(nul_matrix.sum())
 
-df['Cabin_Class'] = df['Cabin'].str[0]
-df['Cabin_Class'] = df['Cabin_Class'].fillna('Unknown')
-cabin_class_mapping = {
-    'A': 7, 'B': 6, 'C': 5, 'D': 4, 'E': 3, 'F': 2, 'G': 1, 'T': 0, 'Unknown': 0
-}
-df['Cabin_Class_Encoded'] = df['Cabin_Class'].map(cabin_class_mapping)
-
 scaler = MinMaxScaler()
-scaler.fit(df[['Cabin_Class_Encoded']])
-df['Cabin_Class_Normalized'] = scaler.transform(df[['Cabin_Class_Encoded']].fillna(0))
-print(df[['Cabin', 'Cabin_Class', 'Cabin_Class_Encoded', 'Cabin_Class_Normalized']].head(10))
+df['Age_Normalized'] = scaler.fit_transform(df[['Age']])
+print(f"\nНормализованный возраст (первые 10 значений):")
+print(df[['Age', 'Age_Normalized']].head(10))
 
-transported_dummy = pd.get_dummies(df['Transported'], prefix='Transported', drop_first=True)
-numeric_cols = ['Age', 'RoomService', 'FoodCourt', 'ShoppingMall', 'Spa', 'VRDeck']
-df_final = pd.concat([df[numeric_cols], transported_dummy], axis=1)
-print(df.head())
+
 
 df.to_csv("processed_titanic.csv", index=False)
