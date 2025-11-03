@@ -38,17 +38,18 @@ print(nul_matrix.sum())
 
 scaler = MinMaxScaler()
 df['Age_Normalized'] = scaler.fit_transform(df[['Age']])
-print(f"\nНормализованный возраст (первые 10 значений):")
+print(f"\nНормализованный возраст:")
 print(df[['Age', 'Age_Normalized']].head(10))
 
 df = pd.get_dummies(df, columns=['Transported'], drop_first=True)
 print("\nДанные после преобразования Transported:")
 print(df[['Transported_True']].head(10))
 
-print(f"\nРазмер датасета до удаления пропусков: {df.shape}")
-df = df.dropna()
-print(f"Размер датасета после удаления пропусков: {df.shape}")
-print("\nПропущенные значения после удаления:")
+columns_to_drop = ['Cabin', 'Destination', 'VIP', 'RoomService','FoodCourt', 'ShoppingMall', 'Spa', 'VRDeck', 'Name']
+df = df.drop(columns=columns_to_drop)
+print(f"Колонки после удаления:")
+print(df.columns.tolist())
+
 print(df.isnull().sum())
 
 df.to_csv("processed_titanic.csv", index=False)
