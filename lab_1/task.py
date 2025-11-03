@@ -45,4 +45,10 @@ df = pd.get_dummies(df, columns=['Transported'], drop_first=True)
 print("\nДанные после преобразования Transported:")
 print(df[['Transported_True']].head(10))
 
+print(f"\nРазмер датасета до удаления пропусков: {df.shape}")
+df = df.dropna()
+print(f"Размер датасета после удаления пропусков: {df.shape}")
+print("\nПропущенные значения после удаления:")
+print(df.isnull().sum())
+
 df.to_csv("processed_titanic.csv", index=False)
