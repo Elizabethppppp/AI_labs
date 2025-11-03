@@ -13,7 +13,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
 
-df = pd.read_csv("processed_titanic.csv")
+df = pd.read_csv("processed_titanic1.csv")
 
 df_k = pd.get_dummies(df, drop_first=True)
 df_clean = df_k.dropna()
