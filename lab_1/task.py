@@ -45,7 +45,7 @@ df = pd.get_dummies(df, columns=['Transported'], drop_first=True)
 print("\nДанные после преобразования Transported:")
 print(df[['Transported_True']].head(10))
 
-columns_to_drop = ['Cabin', 'Destination', 'VIP', 'RoomService','FoodCourt', 'ShoppingMall', 'Spa', 'VRDeck', 'Name']
+columns_to_drop = ['Cabin', 'Destination', 'VIP', 'RoomService','FoodCourt', 'ShoppingMall', 'Spa', 'VRDeck', 'Name', 'CryoSleep', 'HomePlanet']
 df = df.drop(columns=columns_to_drop)
 print(f"Колонки после удаления:")
 print(df.columns.tolist())
