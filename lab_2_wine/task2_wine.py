@@ -61,7 +61,13 @@ print(f"Корень среднеквадратичной ошибки: {RMSE:.2
 print(f"Средняя абсолютная ошибка: {MAE:.2f}")
 
 #классификация
-logreg_model = LogisticRegression(max_iter=1000, solver='liblinear')  # liblinear — надёжный для небольших выборок
+logreg_model = LogisticRegression(max_iter=1000, solver='liblinear')
 logreg_model.fit(X_train, y_train)
 y_pred_cl = logreg_model.predict(X_test)
 
+#оценка работы классификационной модели
+
+accuracy = accuracy_score(y_test, y_pred_cl)
+
+print(f"Точность: {accuracy:.4f}")
+print(f"Доля правильных ответов: {accuracy * 100:.2f}%")
