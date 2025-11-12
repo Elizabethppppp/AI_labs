@@ -23,8 +23,13 @@ print(df.info())
 df = df.drop(columns=['Id'])
 print(df.info())
 
+#для классификации
 X = df.drop(columns=['quality']) #то, на чём обучается модель
 y = df['quality'] #то, что предсказываем
+
+#для регрессии
+X_reg = df.drop(columns=['alcohol', 'quality', 'Id'])
+y_reg = df['alcohol']
 
 #разделение на выборки
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42)
@@ -32,4 +37,4 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_
 print("Размер обучающей выборки:", X_train.shape)
 print("Размер тестовой выборки:", X_test.shape)
 
-#
+#задача регрессии
