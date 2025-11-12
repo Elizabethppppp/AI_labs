@@ -71,3 +71,17 @@ accuracy = accuracy_score(y_test, y_pred_cl)
 
 print(f"Точность: {accuracy:.4f}")
 print(f"Доля правильных ответов: {accuracy * 100:.2f}%")
+
+#матрица ошибок
+cm = confusion_matrix(y_test, y_pred_cl)
+
+plt.figure(figsize=(4, 3))
+sns.heatmap(cm, annot=True, fmt='d', cmap='bwr', cbar=False)
+plt.title('Confusion Matrix')
+plt.ylabel('Истинные метки')
+plt.xlabel('Предсказанные метки')
+plt.show()
+
+report = classification_report(y_test, y_pred_cl)
+print("Отчёт по классификационной модели:")
+print(report)
