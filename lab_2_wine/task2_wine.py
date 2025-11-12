@@ -48,3 +48,12 @@ regres_model = LinearRegression()
 regres_model.fit(X_train_r, y_train_r)
 y_pred_reg = regres_model.predict(X_test_r)
 
+#оценка работы регрессионной модели
+
+MSE = mean_squared_error(y_test_r, y_pred_reg)
+RMSE = root_mean_squared_error(y_test_r, y_pred_reg)
+MAE = mean_absolute_error(y_test_r, y_pred_reg)
+
+print(f"Среднеквадратичная ошибка: {MSE:.2f}")
+print(f"Корень среднеквадратичной ошибки: {RMSE:.2f}")
+print(f"Средняя абсолютная ошибка: {MAE:.2f}")
