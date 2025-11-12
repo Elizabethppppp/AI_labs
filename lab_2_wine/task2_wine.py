@@ -20,12 +20,14 @@ print(df.head())
 print("\nИнформация о датасете:")
 print(df.info())
 
+df['good_quality'] = (df['quality'] >= 7).astype(int)
+
 df = df.drop(columns=['Id'])
 print(df.info())
 
 #для классификации
-X = df.drop(columns=['quality']) #то, на чём обучается модель
-y = df['quality'] #то, что предсказываем
+X = df.drop(columns=['quality','good_quality']) #то, на чём обучается модель
+y = df['good_quality'] #то, что предсказываем
 
 #для регрессии
 X_reg = df.drop(columns=['alcohol'])
@@ -57,3 +59,9 @@ MAE = mean_absolute_error(y_test_r, y_pred_reg)
 print(f"Среднеквадратичная ошибка: {MSE:.2f}")
 print(f"Корень среднеквадратичной ошибки: {RMSE:.2f}")
 print(f"Средняя абсолютная ошибка: {MAE:.2f}")
+
+#классификация
+logreg_model = LogisticRegression(max_iter=1000, solver='liblinear')  # liblinear — надёжный для небольших выборок
+logreg_model.fit(X_train, y_train)
+y_pred_cl = logreg_model.predict(X_test)
+
