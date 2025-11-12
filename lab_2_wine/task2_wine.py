@@ -15,3 +15,7 @@ from sklearn.metrics import classification_report
 
 df = pd.read_csv("WineQT.csv")
 
+print("Первые 5 строк:")
+print(df.head())
+print("\nИнформация о датасете:")
+print(df.info())
