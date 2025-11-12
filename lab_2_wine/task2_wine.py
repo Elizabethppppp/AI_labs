@@ -19,3 +19,11 @@ print("Первые 5 строк:")
 print(df.head())
 print("\nИнформация о датасете:")
 print(df.info())
+
+df = df.drop(columns=['Id'])
+print(df.info())
+
+X = df.drop(columns=['quality']) #то, на чём обучается модель
+y = df['quality'] #то, что предсказываем
+
+#разделение на выборки
