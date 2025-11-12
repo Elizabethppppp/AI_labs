@@ -28,7 +28,7 @@ X = df.drop(columns=['quality']) #то, на чём обучается моде�
 y = df['quality'] #то, что предсказываем
 
 #для регрессии
-X_reg = df.drop(columns=['alcohol', 'quality', 'Id'])
+X_reg = df.drop(columns=['alcohol'])
 y_reg = df['alcohol']
 
 #разделение на выборки для классификации
@@ -44,3 +44,7 @@ print("Размер обучающей выборки:", X_train_r.shape)
 print("Размер тестовой выборки:", X_test_r.shape)
 
 #задача регрессии
+regres_model = LinearRegression()
+regres_model.fit(X_train_r, y_train_r)
+y_pred_reg = regres_model.predict(X_test_r)
+
