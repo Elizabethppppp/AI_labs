@@ -50,3 +50,7 @@ y_clf = df["good_quality"]
 
 X_clf_train, X_clf_test, y_clf_train, y_clf_test = train_test_split(X_clf, y_clf, test_size=0.3, random_state=42, stratify=y_clf)
 
+#классифификация деревом
+clf_tree = DecisionTreeClassifier(max_depth=4, random_state=42)
+clf_tree.fit(X_clf_train, y_clf_train)
+y_clf_proba = clf_tree.predict_proba(X_clf_test)[:, 1]
