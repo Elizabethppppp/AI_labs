@@ -40,3 +40,13 @@ plt.figure(figsize=(20, 10))
 plot_tree(reg_tree, filled=True, feature_names=X_reg.columns, rounded=True)
 plt.title("Дерево решений для регрессии alcohol")
 plt.show()
+
+#классификация для качества
+
+df["good_quality"] = (df["quality"] >= 7).astype(int)
+
+X_clf = df.drop(columns=["quality", "good_quality"])
+y_clf = df["good_quality"]
+
+X_clf_train, X_clf_test, y_clf_train, y_clf_test = train_test_split(X_clf, y_clf, test_size=0.3, random_state=42, stratify=y_clf)
+
