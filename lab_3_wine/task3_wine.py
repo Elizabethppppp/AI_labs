@@ -54,3 +54,18 @@ X_clf_train, X_clf_test, y_clf_train, y_clf_test = train_test_split(X_clf, y_clf
 clf_tree = DecisionTreeClassifier(max_depth=4, random_state=42)
 clf_tree.fit(X_clf_train, y_clf_train)
 y_clf_proba = clf_tree.predict_proba(X_clf_test)[:, 1]
+
+#рок кривая
+fpr, tpr, _ = roc_curve(y_clf_test, y_clf_proba)
+roc_auc = auc(fpr, tpr)
+print(f"РОК кривая: {roc_auc:.4f}")
+
+#визуализация
+plt.figure(figsize=(8, 6))
+plt.plot(fpr, tpr, label=f'AUC = {roc_auc:.4f}')
+plt.plot([0, 1], [0, 1], 'k--')
+plt.title("ROC-кривая (good_quality)")
+plt.xlabel("False Positive Rate")
+plt.ylabel("True Positive Rate")
+plt.legend()
+plt.show()
