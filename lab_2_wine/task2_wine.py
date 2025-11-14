@@ -85,3 +85,5 @@ plt.show()
 report = classification_report(y_test, y_pred_cl)
 print("Отчёт по классификационной модели:")
 print(report)
+
+df.to_csv("wine2.csv", index=False)
