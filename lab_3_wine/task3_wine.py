@@ -69,3 +69,5 @@ plt.xlabel("False Positive Rate")
 plt.ylabel("True Positive Rate")
 plt.legend()
 plt.show()
+
+df.to_csv("wine3.csv", index=False)
