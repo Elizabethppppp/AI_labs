@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="26eecfff-39de-4603-a6da-201d88541156" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/lab_3_wine/task3_wine.py" beforeDir="false" afterPath="$PROJECT_DIR$/lab_3_wine/task3_wine.py" afterDir="false" />
-    </list>
+    <list default="true" id="26eecfff-39de-4603-a6da-201d88541156" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +36,7 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.task.executor": "Run",
+    "Python.task3_wine.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",

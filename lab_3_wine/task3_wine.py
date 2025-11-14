@@ -21,3 +21,7 @@ y_reg = df[target_reg]
 
 X_reg_train, X_reg_test, y_reg_train, y_reg_test = train_test_split(X_reg, y_reg, test_size=0.3, random_state=42)
 
+#(регрессия деревом)
+reg_tree = DecisionTreeRegressor(max_depth=4, random_state=42)
+reg_tree.fit(X_reg_train, y_reg_train)
+y_reg_pred = reg_tree.predict(X_reg_test)
