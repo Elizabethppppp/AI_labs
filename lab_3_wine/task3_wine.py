@@ -26,7 +26,7 @@ reg_tree = DecisionTreeRegressor(max_depth=4, random_state=42)
 reg_tree.fit(X_reg_train, y_reg_train)
 y_reg_pred = reg_tree.predict(X_reg_test)
 
-#оценка работы регрессионной модели
+#(оценка работы регрессионной модели)
 MSE = mean_squared_error(y_reg_test, y_reg_pred)
 RMSE = root_mean_squared_error(y_reg_test, y_reg_pred)
 MAE = mean_absolute_error(y_reg_test, y_reg_pred)
@@ -34,3 +34,9 @@ MAE = mean_absolute_error(y_reg_test, y_reg_pred)
 print(f"Среднеквадратичная ошибка: {MSE:.2f}")
 print(f"Корень среднеквадратичной ошибки: {RMSE:.2f}")
 print(f"Средняя абсолютная ошибка: {MAE:.2f}")
+
+#(визуализация дерева)
+plt.figure(figsize=(20, 10))
+plot_tree(reg_tree, filled=True, feature_names=X_reg.columns, rounded=True)
+plt.title("Дерево решений для регрессии alcohol")
+plt.show()
