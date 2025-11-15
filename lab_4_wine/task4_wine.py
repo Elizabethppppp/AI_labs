@@ -22,3 +22,4 @@ X_test_scaled = scaler.transform(X_test)
 #задачa классификации методом случайного леса
 rf = RandomForestClassifier(n_estimators=300, oob_score=True, random_state=42, n_jobs=-1)
 
+rf.fit(X_train, y_train)
