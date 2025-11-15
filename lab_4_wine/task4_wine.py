@@ -1,4 +1,5 @@
 import pandas as pd
+from matplotlib import pyplot as plt
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
@@ -58,3 +59,6 @@ gb_acc = accuracy_score(y_test, gb_pred)
 print("Точность градиентного бустинга:", gb_acc)
 
 gb_proba = gb.predict_proba(X_test)[:, 1]
+
+#ROC кривая
+plt.figure(figsize=(10, 7))
