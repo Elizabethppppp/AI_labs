@@ -52,3 +52,8 @@ gb = GradientBoostingClassifier(n_estimators=300, learning_rate=0.05, max_depth=
 
 gb.fit(X_train, y_train)
 
+#(точность)
+gb_pred = gb.predict(X_test)
+gb_acc = accuracy_score(y_test, gb_pred)
+print("Точность градиентного бустинга:", gb_acc)
+
