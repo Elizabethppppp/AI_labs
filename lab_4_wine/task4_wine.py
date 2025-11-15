@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -46,3 +46,9 @@ adb_acc = accuracy_score(y_test, adb_pred)
 print("Точность AdaBoost:", adb_acc)
 
 adb_proba = adb.predict_proba(X_test_scaled)[:, 1]
+
+#задачa классификации методом методом градиентного бустинга
+gb = GradientBoostingClassifier(n_estimators=300, learning_rate=0.05, max_depth=3, random_state=42)
+
+gb.fit(X_train, y_train)
+
