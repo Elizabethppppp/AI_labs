@@ -87,3 +87,5 @@ plt.ylabel("Доля истинно положительных результа�
 plt.legend()
 plt.grid()
 plt.show()
+
+df.to_csv("wine4.csv", index=False)
