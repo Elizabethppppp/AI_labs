@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
@@ -26,3 +27,8 @@ rf.fit(X_train, y_train)
 
 print("OOB оценка:", rf.oob_score_)
 print("OOB ошибка:", 1 - rf.oob_score_)
+
+#предсказание
+rf_pred = rf.predict(X_test)
+rf_acc = accuracy_score(y_test, rf_pred)
+print("Точность случайного леса:", rf_acc)
