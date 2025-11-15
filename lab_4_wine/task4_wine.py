@@ -74,3 +74,16 @@ roc_auc_adb = auc(fpr_adb, tpr_adb)
 #для градиентного бустинга
 fpr_gb, tpr_gb, _ = roc_curve(y_test, gb_proba)
 roc_auc_gb = auc(fpr_gb, tpr_gb)
+
+plt.plot(fpr_rf, tpr_rf, label=f"Случайный лес (точность = {roc_auc_rf:.3f})", linewidth=2)
+plt.plot(fpr_adb, tpr_adb, label=f"AdaBoost (точность = {roc_auc_adb:.3f})", linewidth=2)
+plt.plot(fpr_gb, tpr_gb, label=f"Градиентный бустинг (точность = {roc_auc_gb:.3f})", linewidth=2)
+
+plt.plot([0, 1], [0, 1], 'k--')
+
+plt.title("ROC кривые", fontsize=14)
+plt.xlabel("Доля ложных положительных результатов")
+plt.ylabel("Доля истинно положительных результатов")
+plt.legend()
+plt.grid()
+plt.show()
