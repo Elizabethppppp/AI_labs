@@ -28,7 +28,7 @@ rf.fit(X_train, y_train)
 print("OOB оценка:", rf.oob_score_)
 print("OOB ошибка:", 1 - rf.oob_score_)
 
-#точность
+#(точность)
 rf_pred = rf.predict(X_test)
 rf_acc = accuracy_score(y_test, rf_pred)
 print("Точность случайного леса:", rf_acc)
@@ -40,8 +40,9 @@ adb = AdaBoostClassifier(n_estimators=300, learning_rate=0.05, random_state=42)
 
 adb.fit(X_train_scaled, y_train)
 
-#точность
+#(точность)
 adb_pred = adb.predict(X_test_scaled)
 adb_acc = accuracy_score(y_test, adb_pred)
 print("Точность AdaBoost:", adb_acc)
 
+adb_proba = adb.predict_proba(X_test_scaled)[:, 1]
