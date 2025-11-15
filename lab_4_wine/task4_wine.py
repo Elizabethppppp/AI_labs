@@ -66,3 +66,7 @@ plt.figure(figsize=(10, 7))
 #для случайного леса
 fpr_rf, tpr_rf, _ = roc_curve(y_test, rf_proba)
 roc_auc_rf = auc(fpr_rf, tpr_rf)
+
+#для AdaBoost
+fpr_adb, tpr_adb, _ = roc_curve(y_test, adb_proba)
+roc_auc_adb = auc(fpr_adb, tpr_adb)
