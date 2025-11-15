@@ -1,5 +1,5 @@
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -34,3 +34,8 @@ rf_acc = accuracy_score(y_test, rf_pred)
 print("Точность случайного леса:", rf_acc)
 
 rf_proba = rf.predict_proba(X_test)[:, 1]
+
+#задачa классификации методом AdaBoos
+adb = AdaBoostClassifier(n_estimators=300, learning_rate=0.05, random_state=42)
+
+adb.fit(X_train_scaled, y_train)
