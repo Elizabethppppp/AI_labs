@@ -1,7 +1,7 @@
 import pandas as pd
 from matplotlib import pyplot as plt
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, auc, roc_curve
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
@@ -62,3 +62,7 @@ gb_proba = gb.predict_proba(X_test)[:, 1]
 
 #ROC кривая
 plt.figure(figsize=(10, 7))
+
+#для случайного леса
+fpr_rf, tpr_rf, _ = roc_curve(y_test, rf_proba)
+roc_auc_rf = auc(fpr_rf, tpr_rf)
