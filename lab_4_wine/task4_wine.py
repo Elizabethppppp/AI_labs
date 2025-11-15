@@ -32,3 +32,5 @@ print("OOB ошибка:", 1 - rf.oob_score_)
 rf_pred = rf.predict(X_test)
 rf_acc = accuracy_score(y_test, rf_pred)
 print("Точность случайного леса:", rf_acc)
+
+rf_proba = rf.predict_proba(X_test)[:, 1]
