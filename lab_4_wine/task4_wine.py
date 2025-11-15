@@ -70,3 +70,7 @@ roc_auc_rf = auc(fpr_rf, tpr_rf)
 #для AdaBoost
 fpr_adb, tpr_adb, _ = roc_curve(y_test, adb_proba)
 roc_auc_adb = auc(fpr_adb, tpr_adb)
+
+#для градиентного бустинга
+fpr_gb, tpr_gb, _ = roc_curve(y_test, gb_proba)
+roc_auc_gb = auc(fpr_gb, tpr_gb)
