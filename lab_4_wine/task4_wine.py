@@ -57,3 +57,4 @@ gb_pred = gb.predict(X_test)
 gb_acc = accuracy_score(y_test, gb_pred)
 print("Точность градиентного бустинга:", gb_acc)
 
+gb_proba = gb.predict_proba(X_test)[:, 1]
