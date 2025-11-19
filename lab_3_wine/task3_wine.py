@@ -36,8 +36,8 @@ print(f"Корень среднеквадратичной ошибки: {RMSE:.2
 print(f"Средняя абсолютная ошибка: {MAE:.2f}")
 
 #(визуализация дерева)
-plt.figure(figsize=(20, 10))
-plot_tree(reg_tree, filled=True, feature_names=X_reg.columns, rounded=True)
+plt.figure(figsize=(15, 10))
+plot_tree(reg_tree, filled=True, feature_names=X_reg.columns, rounded=True, fontsize=4 )
 plt.title("Дерево решений для регрессии alcohol")
 plt.show()
 
@@ -62,11 +62,11 @@ print(f"РОК кривая: {roc_auc:.4f}")
 
 #визуализация
 plt.figure(figsize=(8, 6))
-plt.plot(fpr, tpr, label=f'AUC = {roc_auc:.4f}')
+plt.plot(fpr, tpr, label=f'точность = {roc_auc:.4f}')
 plt.plot([0, 1], [0, 1], 'k--')
-plt.title("ROC-кривая (good_quality)")
-plt.xlabel("False Positive Rate")
-plt.ylabel("True Positive Rate")
+plt.title("ROC кривая (good_quality)")
+plt.xlabel("Доля ложных положительных результатов")
+plt.ylabel("Доля истинно положительных результатов")
 plt.legend()
 plt.show()
 
